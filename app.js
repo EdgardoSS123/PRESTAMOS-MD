@@ -61,7 +61,7 @@ function ceteLoan(c,fundingPct){
 function renderBond(){
   const b=selectedB()||bonds[0]; if(!b)return; selectedBond=b.bond;
   $("bondInput").value=b.bond;$("bondList").innerHTML=bonds.map(x=>'<option value="'+x.bond+'"></option>').join("");
-  $("currentLoan").textContent=loanFmt(atFunding(b,bondFunding));$("currentFunding").textContent=pctDec(bondFunding);$("currentYield").textContent=pctNum(b.valuation*100);
+  $("currentLoan").textContent=loanFmt(atFunding(b,bondFunding));if(document.activeElement!==$("currentFundingInput"))$("currentFundingInput").value=(bondFunding*100).toFixed(2);$("currentYield").textContent=pctNum(b.valuation*100);
   $("loanResult").textContent=loanFmt(atFunding(b,n($("fundingInput").value)/100));$("fundingResult").textContent=pctDec(atLoan(b,n($("loanInput").value)));
   $("bondCount").textContent=bonds.length+" bonos";
   $("curveBody").innerHTML=bonds.map(x=>'<tr class="'+(x.bond===b.bond?"sel":"")+'" data-bond="'+x.bond+'"><td>'+x.bond+'</td><td>'+pctNum(x.valuation*100)+'</td><td>'+(x.yesterday==null?"—":pctNum(x.yesterday))+'</td><td>'+loanFmt(atFunding(x,bondFunding))+'</td></tr>').join("");
@@ -127,7 +127,7 @@ function parseValuation(wb,file){
   const d=parseFilenameDate(file.name);if(d)valuationDate=d;valuationName=file.name;
 }
 document.querySelectorAll(".tab").forEach(btn=>btn.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===btn));$("bonosView").hidden=btn.dataset.tab!=="bonos";$("cetesView").hidden=btn.dataset.tab!=="cetes"});
-$("bondInput").oninput=e=>{selectedBond=e.target.value.trim().toUpperCase();if(selectedB())renderBond()};$("fundingInput").oninput=renderBond;$("loanInput").oninput=renderBond;
+$("bondInput").oninput=e=>{selectedBond=e.target.value.trim().toUpperCase();if(selectedB())renderBond()};$("currentFundingInput").oninput=e=>{const v=n(e.target.value);if(Number.isFinite(v)){bondFunding=v/100;saveLocal();renderBond()}};$("fundingInput").oninput=renderBond;$("loanInput").oninput=renderBond;
 $("ceteInput").oninput=e=>{selectedCete=e.target.value.trim();if(selectedC())renderCete()};$("ceteFundingInput").oninput=renderCete;
 $("valuationFile").onchange=async e=>{showError("");const file=e.target.files?.[0];if(!file)return;try{const wb=XLSX.read(await file.arrayBuffer(),{type:"array",cellFormula:true,cellDates:true});parseValuation(wb,file);saveLocal();renderAll()}catch(err){showError("No pude leer la valuación: "+err.message)}finally{e.target.value=""}};
 restoreLocal();renderAll();loadBanxico();
