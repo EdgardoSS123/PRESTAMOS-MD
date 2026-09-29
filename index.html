@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b0f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="PRESTAMOS MD">
+<link rel="manifest" href="manifest.webmanifest">
+<title>PRESTAMOS MD</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+<main class="app">
+<header class="top">
+<div><div class="eyebrow">MERCADO DE DINERO</div><h1>Préstamos</h1><div class="sub">Bonos · Préstamo ↔ Fondeo</div></div>
+<label class="upload">Actualizar Excel<input id="fileInput" type="file" accept=".xlsx,.xls" hidden></label>
+</header>
+
+<section class="current">
+<div><span>Archivo</span><b id="fileName">SENS PRESTAMOS2.xlsx</b></div>
+<div class="r"><span>Fondeo actual</span><b id="fundingHead">6.54%</b></div>
+</section>
+
+<section class="panel hero">
+<label>BONO</label>
+<input id="bondInput" list="bondList" value="AB55" autocomplete="off">
+<datalist id="bondList"></datalist>
+<div class="facts">
+<div><span>Préstamo actual</span><strong id="currentLoan">0.0996</strong></div>
+<div><span>Fondeo actual</span><strong id="currentFunding">6.54%</strong></div>
+<div><span>Valuación</span><strong id="currentYield">10.12%</strong></div>
+</div>
+</section>
+
+<section class="panel">
+<div class="sectionTitle">CALCULAR POR FONDEO</div>
+<div class="calc">
+<div><label>FONDEO</label><div class="suffix"><input id="fundingInput" inputmode="decimal" value="6.30"><i>%</i></div></div>
+<div class="arrow">→</div>
+<div class="answer"><span>Préstamo equivalente</span><strong id="loanResult">0.1068</strong></div>
+</div>
+</section>
+
+<section class="panel">
+<div class="sectionTitle">CALCULAR POR PRÉSTAMO</div>
+<div class="calc">
+<div><label>PRÉSTAMO</label><input id="loanInput" inputmode="decimal" value="0.1068"></div>
+<div class="arrow">→</div>
+<div class="answer"><span>Fondeo equivalente</span><strong id="fundingResult">6.30%</strong></div>
+</div>
+</section>
+
+<section class="panel curve">
+<div class="curveTitle"><div class="sectionTitle">CURVA ACTUAL</div><span id="bondCount"></span></div>
+<div class="tableWrap"><table><thead><tr><th>Bono</th><th>Valuación</th><th>Préstamo</th></tr></thead><tbody id="curveBody"></tbody></table></div>
+</section>
+<p id="error" class="error" hidden></p>
+</main>
+<script src="app.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("./sw.js").catch(()=>{});}</script>
+</body>
+</html>
