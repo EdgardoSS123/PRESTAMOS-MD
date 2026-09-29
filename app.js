@@ -79,6 +79,29 @@ function renderCete(){
   document.querySelectorAll("#ceteBody tr").forEach(tr=>tr.onclick=()=>{selectedCete=tr.dataset.cete;renderCete()});
 }
 function renderHeader(){$("valuationName").textContent=valuationName;$("banxicoDate").textContent=banxico.sourceDate||"—"}
+function saveLocal(){
+  try{
+    localStorage.setItem("prestamosMD.state",JSON.stringify({
+      bonds,cetes,bondFunding,selectedBond,selectedCete,
+      valuationDate:valuationDate.toISOString(),
+      valuationName
+    }));
+  }catch(e){}
+}
+function restoreLocal(){
+  try{
+    const raw=localStorage.getItem("prestamosMD.state");
+    if(!raw)return;
+    const s=JSON.parse(raw);
+    if(Array.isArray(s.bonds)&&s.bonds.length)bonds=s.bonds;
+    if(Array.isArray(s.cetes)&&s.cetes.length)cetes=s.cetes;
+    if(Number.isFinite(s.bondFunding))bondFunding=s.bondFunding;
+    if(s.selectedBond)selectedBond=s.selectedBond;
+    if(s.selectedCete)selectedCete=s.selectedCete;
+    if(s.valuationDate)valuationDate=new Date(s.valuationDate);
+    if(s.valuationName)valuationName=s.valuationName;
+  }catch(e){}
+}
 function renderAll(){renderHeader();renderBond();renderCete()}
 async function loadBanxico(){try{const r=await fetch("./banxico.json?ts="+Date.now(),{cache:"no-store"});if(r.ok){banxico=await r.json();renderAll()}}catch(e){}}
 function parseFilenameDate(name){const m=name.match(/(20\d{6})/);if(!m)return null;const s=m[1];return new Date(Number(s.slice(0,4)),Number(s.slice(4,6))-1,Number(s.slice(6,8)),12)}
@@ -106,5 +129,5 @@ function parseValuation(wb,file){
 document.querySelectorAll(".tab").forEach(btn=>btn.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===btn));$("bonosView").hidden=btn.dataset.tab!=="bonos";$("cetesView").hidden=btn.dataset.tab!=="cetes"});
 $("bondInput").oninput=e=>{selectedBond=e.target.value.trim().toUpperCase();if(selectedB())renderBond()};$("fundingInput").oninput=renderBond;$("loanInput").oninput=renderBond;
 $("ceteInput").oninput=e=>{selectedCete=e.target.value.trim();if(selectedC())renderCete()};$("ceteFundingInput").oninput=renderCete;
-$("valuationFile").onchange=async e=>{showError("");const file=e.target.files?.[0];if(!file)return;try{const wb=XLSX.read(await file.arrayBuffer(),{type:"array",cellFormula:true,cellDates:true});parseValuation(wb,file);renderAll()}catch(err){showError("No pude leer la valuación: "+err.message)}finally{e.target.value=""}};
-renderAll();loadBanxico();
+$("valuationFile").onchange=async e=>{showError("");const file=e.target.files?.[0];if(!file)return;try{const wb=XLSX.read(await file.arrayBuffer(),{type:"array",cellFormula:true,cellDates:true});parseValuation(wb,file);saveLocal();renderAll()}catch(err){showError("No pude leer la valuación: "+err.message)}finally{e.target.value=""}};
+restoreLocal();renderAll();loadBanxico();
