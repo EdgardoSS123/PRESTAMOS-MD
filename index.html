@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="PRESTAMOS MD">
 <link rel="manifest" href="manifest.webmanifest">
 <title>PRESTAMOS MD</title>
-<link rel="stylesheet" href="styles-v6.css">
+<link rel="stylesheet" href="styles-v7.css">
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 </head>
 <body>
@@ -34,7 +34,7 @@
     <label>BONO</label>
     <select id="bondInput" class="instrumentSelect"></select>
     <div class="facts">
-      <div><span>Préstamo actual</span><strong id="currentLoan">0.0996</strong></div>
+      <div><span>Préstamo actual</span><strong id="currentLoan">0.09960</strong></div>
       <div><span>Fondeo actual</span><div class="suffix compact"><input id="currentFundingInput" inputmode="decimal" value="6.54"><i>%</i></div></div>
       <div><span>Cierre</span><strong id="currentYield">10.12%</strong></div>
     </div>
@@ -45,14 +45,14 @@
     <div class="calc">
       <div><label>FONDEO</label><div class="suffix"><input id="fundingInput" inputmode="decimal" value="6.30"><i>%</i></div></div>
       <div class="arrow">→</div>
-      <div class="answer"><span>Préstamo equivalente</span><strong id="loanResult">0.1068</strong></div>
+      <div class="answer"><span>Préstamo equivalente</span><strong id="loanResult">0.10680</strong></div>
     </div>
   </section>
 
   <section class="panel">
     <div class="sectionTitle">CALCULAR POR PRÉSTAMO</div>
     <div class="calc">
-      <div><label>PRÉSTAMO</label><input id="loanInput" inputmode="decimal" value="0.1068"></div>
+      <div><label>PRÉSTAMO</label><input id="loanInput" inputmode="decimal" value="0.10680"></div>
       <div class="arrow">→</div>
       <div class="answer"><span>Fondeo equivalente</span><strong id="fundingResult">6.30%</strong></div>
     </div>
@@ -80,7 +80,7 @@
     <div class="calc">
       <div><label>FONDEO</label><div class="suffix"><input id="ceteFundingInput" inputmode="decimal" value="5.90"><i>%</i></div></div>
       <div class="arrow">→</div>
-      <div class="answer"><span>Préstamo</span><strong id="ceteLoanResult">—</strong></div>
+      <div class="answer"><span>Préstamo</span><strong id="ceteLoanResult">0.00000</strong></div>
     </div>
   </section>
 
@@ -92,7 +92,7 @@
 
 <p id="error" class="error" hidden></p>
 </main>
-<script src="app-v6.js"></script>
+<script src="app-v7.js"></script>
 <script>
 (async()=>{
   try{
