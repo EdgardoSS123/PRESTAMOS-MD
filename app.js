@@ -72,9 +72,7 @@ function renderCete(){
   $("ceteInput").value=c.emission;$("ceteList").innerHTML=cetes.map(x=>'<option value="'+x.emission+'"></option>').join("");
   const bx=banxico.items[c.emission]||null;
   $("ceteClose").textContent=pctNum(c.close);$("ceteDays").textContent=c.days+" días";
-  $("ceteWindow").textContent=bx?money(bx.window):"—";$("ceteBalance").textContent=bx?money(bx.balance):"—";
-  $("ceteMaturity").textContent=dateFmt(emissionDate(c.emission));$("ceteYesterday").textContent=pctNum(c.yesterday);
-  $("ceteMDDate").textContent=dateFmt(addBusinessDay(valuationDate));
+  $("ceteWindow").textContent=bx?money(bx.window):"—";
   $("ceteLoanResult").textContent=loanFmt(ceteLoan(c,n($("ceteFundingInput").value)));
   $("ceteCount").textContent=cetes.length+" emisiones";
   $("ceteBody").innerHTML=cetes.map(x=>{const q=banxico.items[x.emission];return '<tr class="'+(x.emission===c.emission?"sel":"")+'" data-cete="'+x.emission+'"><td>'+x.emission+'</td><td>'+x.days+'</td><td>'+pctNum(x.close)+'</td><td>'+(q?money(q.window):"—")+'</td></tr>'}).join("");
