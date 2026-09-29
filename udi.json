@@ -1,0 +1,151 @@
+{
+  "sourceDate": "28/09/2026",
+  "udiSource": "https://www.banxico.org.mx/tipcamb/llenarInflacionAction.do?idioma=sp&usarCache=false",
+  "udibonoSource": "https://www.banxico.org.mx/valores/PresentaDetallePosicionGub.faces?BMXC_instrumento=5&BMXC_lang=es_MX",
+  "values": {
+    "25/09/2026": 8.824423,
+    "26/09/2026": 8.826356,
+    "27/09/2026": 8.82829,
+    "28/09/2026": 8.830224,
+    "29/09/2026": 8.832158,
+    "30/09/2026": 8.834094,
+    "01/10/2026": 8.836029,
+    "02/10/2026": 8.837965,
+    "03/10/2026": 8.839901,
+    "04/10/2026": 8.841838,
+    "05/10/2026": 8.843775,
+    "06/10/2026": 8.845713,
+    "07/10/2026": 8.847651,
+    "08/10/2026": 8.849589,
+    "09/10/2026": 8.851528,
+    "10/10/2026": 8.853467
+  },
+  "udibonos": {
+    "261203": {
+      "maturity": "03/12/2026",
+      "balance": 33563.5,
+      "daysToMaturity": 66,
+      "coupons": 1,
+      "couponDays": 182,
+      "daysElapsed": 116,
+      "coupon": 3
+    },
+    "281130": {
+      "maturity": "30/11/2028",
+      "balance": 40774.8,
+      "daysToMaturity": 794,
+      "coupons": 5,
+      "couponDays": 182,
+      "daysElapsed": 116,
+      "coupon": 4
+    },
+    "290830": {
+      "maturity": "30/08/2029",
+      "balance": 39057.7,
+      "daysToMaturity": 1067,
+      "coupons": 6,
+      "couponDays": 182,
+      "daysElapsed": 25,
+      "coupon": 4
+    },
+    "311127": {
+      "maturity": "27/11/2031",
+      "balance": 60058.3,
+      "daysToMaturity": 1886,
+      "coupons": 11,
+      "couponDays": 182,
+      "daysElapsed": 116,
+      "coupon": 2.75
+    },
+    "340824": {
+      "maturity": "24/08/2034",
+      "balance": 45469.5,
+      "daysToMaturity": 2887,
+      "coupons": 16,
+      "couponDays": 182,
+      "daysElapsed": 25,
+      "coupon": 4
+    },
+    "351122": {
+      "maturity": "22/11/2035",
+      "balance": 53803.7,
+      "daysToMaturity": 3342,
+      "coupons": 19,
+      "couponDays": 182,
+      "daysElapsed": 116,
+      "coupon": 4.5
+    },
+    "370423": {
+      "maturity": "23/04/2037",
+      "balance": 4850.2,
+      "daysToMaturity": 3860,
+      "coupons": 22,
+      "couponDays": 182,
+      "daysElapsed": 144,
+      "coupon": 4
+    },
+    "401115": {
+      "maturity": "15/11/2040",
+      "balance": 46112.3,
+      "daysToMaturity": 5162,
+      "coupons": 29,
+      "couponDays": 182,
+      "daysElapsed": 116,
+      "coupon": 4
+    },
+    "431112": {
+      "maturity": "12/11/2043",
+      "balance": 47294.5,
+      "daysToMaturity": 6254,
+      "coupons": 35,
+      "couponDays": 182,
+      "daysElapsed": 116,
+      "coupon": 3.25
+    },
+    "461108": {
+      "maturity": "08/11/2046",
+      "balance": 48203.1,
+      "daysToMaturity": 7346,
+      "coupons": 41,
+      "couponDays": 182,
+      "daysElapsed": 116,
+      "coupon": 4
+    },
+    "470801": {
+      "maturity": "01/08/2047",
+      "balance": 6188.2,
+      "daysToMaturity": 7612,
+      "coupons": 42,
+      "couponDays": 182,
+      "daysElapsed": 32,
+      "coupon": 4
+    },
+    "501103": {
+      "maturity": "03/11/2050",
+      "balance": 62523.5,
+      "daysToMaturity": 8802,
+      "coupons": 49,
+      "couponDays": 182,
+      "daysElapsed": 116,
+      "coupon": 4
+    },
+    "541029": {
+      "maturity": "29/10/2054",
+      "balance": 37933.7,
+      "daysToMaturity": 10258,
+      "coupons": 57,
+      "couponDays": 182,
+      "daysElapsed": 116,
+      "coupon": 4
+    },
+    "571011": {
+      "maturity": "11/10/2057",
+      "balance": 23299.2,
+      "daysToMaturity": 11336,
+      "coupons": 63,
+      "couponDays": 182,
+      "daysElapsed": 130,
+      "coupon": 4
+    }
+  }
+}
