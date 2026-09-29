@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="PRESTAMOS MD">
 <link rel="manifest" href="manifest.webmanifest">
 <title>PRESTAMOS MD</title>
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles-v5.css">
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 </head>
 <body>
@@ -94,11 +94,20 @@
 
 <p id="error" class="error" hidden></p>
 </main>
-<script src="app.js?v=3"></script>
+<script src="app-v5.js"></script>
 <script>
-if("serviceWorker" in navigator){
-  navigator.serviceWorker.getRegistrations().then(rs=>Promise.all(rs.map(r=>r.unregister()))).catch(()=>{});
-}
+(async()=>{
+  try{
+    if("serviceWorker" in navigator){
+      const rs=await navigator.serviceWorker.getRegistrations();
+      await Promise.all(rs.map(r=>r.unregister()));
+    }
+    if("caches" in window){
+      const ks=await caches.keys();
+      await Promise.all(ks.map(k=>caches.delete(k)));
+    }
+  }catch(e){}
+})();
 </script>
 </body>
 </html>
