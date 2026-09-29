@@ -1,30 +1,28 @@
 # PRESTAMOS MD
 
-Calculadora personal de mercado de dinero para bonos.
+App personal para Bonos y CETES.
 
-## Funciones
-- Selección de bono.
-- Préstamo actual.
-- Fondeo actual.
-- Valuación base.
-- Fondeo manual → préstamo equivalente.
-- Préstamo manual → fondeo equivalente.
-- Carga del archivo diario `SENS-PRESTAMOS`.
-- Curva completa.
+## Valuación diaria
+El botón **Valuación diaria** acepta el archivo `Resumen_Tradition_YYYYMMDD.xls/xlsx`.
 
-## Fuente
-Sólo se utiliza la hoja `SENS-PRESTAMOS`. `PRESTAMOS CTS` queda fuera.
+Del mismo archivo toma:
+- Bonos M: emisión, cierre Hoy y Ayer.
+- CETES: emisión, plazo, cierre Hoy y Ayer.
 
-- Bono: C
-- Valuación: H
-- Fondeo: I1
-- Q: Q
-- R: R
-- PV01: U
-- Préstamo: W
+## Bonos
+Mantiene el motor préstamo ↔ fondeo validado contra la hoja SENS-PRESTAMOS.
 
-Relación:
-`PREST = ((Q - R) - (R * FONDEO / 360)) / PV01`
+## CETES
+Para cada emisión calcula préstamo a partir del fondeo manual reproduciendo la lógica de la calculadora original:
+- precio MD
+- precio 24 horas
+- PV01 a +1 bp
+- préstamo equivalente
 
-Inversa:
-`FONDEO = 360 * ((Q - R) - PREST * PV01) / R`
+## Ventana CETES
+Fuente oficial:
+https://www.banxico.org.mx/valores/PresentaDetallePosicionGub.faces?BMXC_instrumento=1&BMXC_lang=es_MX
+
+`Ventana = Saldo Total por Colocación × 4%`
+
+`banxico.json` se actualiza automáticamente mediante GitHub Actions en días hábiles.
