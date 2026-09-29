@@ -15,48 +15,90 @@
 <body>
 <main class="app">
 <header class="top">
-<div><div class="eyebrow">MERCADO DE DINERO</div><h1>Préstamos</h1><div class="sub">Bonos · Préstamo ↔ Fondeo</div></div>
-<label class="upload">Actualizar Excel<input id="fileInput" type="file" accept=".xlsx,.xls" hidden></label>
+  <div><div class="eyebrow">MERCADO DE DINERO</div><h1>Préstamos MD</h1><div class="sub">Bonos + CETES</div></div>
+  <label class="upload">Valuación diaria<input id="valuationFile" type="file" accept=".xlsx,.xls" hidden></label>
 </header>
 
 <section class="current">
-<div><span>Archivo</span><b id="fileName">SENS PRESTAMOS2.xlsx</b></div>
-<div class="r"><span>Fondeo actual</span><b id="fundingHead">6.54%</b></div>
+  <div><span>Valuación</span><b id="valuationName">Resumen 28/09/2026</b></div>
+  <div class="r"><span>Banxico</span><b id="banxicoDate">28/09/2026</b></div>
 </section>
 
-<section class="panel hero">
-<label>BONO</label>
-<input id="bondInput" list="bondList" value="AB55" autocomplete="off">
-<datalist id="bondList"></datalist>
-<div class="facts">
-<div><span>Préstamo actual</span><strong id="currentLoan">0.0996</strong></div>
-<div><span>Fondeo actual</span><strong id="currentFunding">6.54%</strong></div>
-<div><span>Valuación</span><strong id="currentYield">10.12%</strong></div>
-</div>
+<nav class="tabs">
+  <button class="tab active" data-tab="bonos">BONOS</button>
+  <button class="tab" data-tab="cetes">CETES</button>
+</nav>
+
+<section id="bonosView">
+  <section class="panel hero">
+    <label>BONO</label>
+    <input id="bondInput" list="bondList" value="AB55" autocomplete="off">
+    <datalist id="bondList"></datalist>
+    <div class="facts">
+      <div><span>Préstamo actual</span><strong id="currentLoan">0.0996</strong></div>
+      <div><span>Fondeo actual</span><strong id="currentFunding">6.54%</strong></div>
+      <div><span>Cierre</span><strong id="currentYield">10.12%</strong></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="sectionTitle">CALCULAR POR FONDEO</div>
+    <div class="calc">
+      <div><label>FONDEO</label><div class="suffix"><input id="fundingInput" inputmode="decimal" value="6.30"><i>%</i></div></div>
+      <div class="arrow">→</div>
+      <div class="answer"><span>Préstamo equivalente</span><strong id="loanResult">0.1068</strong></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="sectionTitle">CALCULAR POR PRÉSTAMO</div>
+    <div class="calc">
+      <div><label>PRÉSTAMO</label><input id="loanInput" inputmode="decimal" value="0.1068"></div>
+      <div class="arrow">→</div>
+      <div class="answer"><span>Fondeo equivalente</span><strong id="fundingResult">6.30%</strong></div>
+    </div>
+  </section>
+
+  <section class="panel curve">
+    <div class="curveTitle"><div class="sectionTitle">CURVA ACTUAL</div><span id="bondCount"></span></div>
+    <div class="tableWrap"><table><thead><tr><th>Bono</th><th>Cierre</th><th>Ayer</th><th>Préstamo</th></tr></thead><tbody id="curveBody"></tbody></table></div>
+  </section>
 </section>
 
-<section class="panel">
-<div class="sectionTitle">CALCULAR POR FONDEO</div>
-<div class="calc">
-<div><label>FONDEO</label><div class="suffix"><input id="fundingInput" inputmode="decimal" value="6.30"><i>%</i></div></div>
-<div class="arrow">→</div>
-<div class="answer"><span>Préstamo equivalente</span><strong id="loanResult">0.1068</strong></div>
-</div>
+<section id="cetesView" hidden>
+  <section class="panel hero">
+    <label>EMISIÓN CETE</label>
+    <input id="ceteInput" list="ceteList" value="261008" autocomplete="off" inputmode="numeric">
+    <datalist id="ceteList"></datalist>
+    <div class="facts">
+      <div><span>Cierre</span><strong id="ceteClose">6.54%</strong></div>
+      <div><span>Plazo</span><strong id="ceteDays">10 días</strong></div>
+      <div><span>Ventana 4%</span><strong id="ceteWindow">$918.0 MM</strong></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="sectionTitle">PRÉSTAMO POR FONDEO</div>
+    <div class="calc">
+      <div><label>FONDEO</label><div class="suffix"><input id="ceteFundingInput" inputmode="decimal" value="5.90"><i>%</i></div></div>
+      <div class="arrow">→</div>
+      <div class="answer"><span>Préstamo</span><strong id="ceteLoanResult">—</strong></div>
+    </div>
+  </section>
+
+  <section class="panel infoGrid">
+    <div><span>Saldo Banxico</span><strong id="ceteBalance">—</strong></div>
+    <div><span>Vencimiento</span><strong id="ceteMaturity">—</strong></div>
+    <div><span>Ayer</span><strong id="ceteYesterday">—</strong></div>
+    <div><span>Fecha MD</span><strong id="ceteMDDate">—</strong></div>
+  </section>
+
+  <section class="panel curve">
+    <div class="curveTitle"><div class="sectionTitle">EMISIONES CETES</div><span id="ceteCount"></span></div>
+    <div class="tableWrap"><table><thead><tr><th>Emisión</th><th>Plazo</th><th>Cierre</th><th>Ventana</th></tr></thead><tbody id="ceteBody"></tbody></table></div>
+  </section>
 </section>
 
-<section class="panel">
-<div class="sectionTitle">CALCULAR POR PRÉSTAMO</div>
-<div class="calc">
-<div><label>PRÉSTAMO</label><input id="loanInput" inputmode="decimal" value="0.1068"></div>
-<div class="arrow">→</div>
-<div class="answer"><span>Fondeo equivalente</span><strong id="fundingResult">6.30%</strong></div>
-</div>
-</section>
-
-<section class="panel curve">
-<div class="curveTitle"><div class="sectionTitle">CURVA ACTUAL</div><span id="bondCount"></span></div>
-<div class="tableWrap"><table><thead><tr><th>Bono</th><th>Valuación</th><th>Préstamo</th></tr></thead><tbody id="curveBody"></tbody></table></div>
-</section>
 <p id="error" class="error" hidden></p>
 </main>
 <script src="app.js"></script>
