@@ -38,7 +38,7 @@ const $=id=>document.getElementById(id);
 const n=s=>Number(String(s).replace(",",".").replace("%","").trim());
 const pctDec=x=>Number.isFinite(x)?(x*100).toFixed(2)+"%":"—";
 const pctNum=x=>Number.isFinite(x)?x.toFixed(2):"—";
-const loanFmt=x=>Number.isFinite(x)?x.toFixed(4):"—";
+const loanFmt=x=>Number.isFinite(x)?x.toFixed(5):"—";
 const money=x=>Number.isFinite(x)?x.toLocaleString("es-MX",{maximumFractionDigits:1})+" MM":"—";
 const dateFmt=d=>d?new Intl.DateTimeFormat("es-MX",{day:"2-digit",month:"2-digit",year:"numeric"}).format(d):"—";
 function addBusinessDay(d){let x=new Date(d);do{x.setDate(x.getDate()+1)}while(x.getDay()===0||x.getDay()===6);return x}
