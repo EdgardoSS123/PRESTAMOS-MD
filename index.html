@@ -32,8 +32,7 @@
 <section id="bonosView">
   <section class="panel hero">
     <label>BONO</label>
-    <input id="bondInput" list="bondList" value="AB55" autocomplete="off">
-    <datalist id="bondList"></datalist>
+    <select id="bondInput" class="instrumentSelect"></select>
     <div class="facts">
       <div><span>Préstamo actual</span><strong id="currentLoan">0.0996</strong></div>
       <div><span>Fondeo actual</span><div class="suffix compact"><input id="currentFundingInput" inputmode="decimal" value="6.54"><i>%</i></div></div>
@@ -68,8 +67,7 @@
 <section id="cetesView" hidden>
   <section class="panel hero">
     <label>EMISIÓN CETE</label>
-    <input id="ceteInput" list="ceteList" value="261008" autocomplete="off" inputmode="numeric">
-    <datalist id="ceteList"></datalist>
+    <select id="ceteInput" class="instrumentSelect"></select>
     <div class="facts">
       <div><span>Cierre</span><strong id="ceteClose">6.54%</strong></div>
       <div><span>Plazo</span><strong id="ceteDays">10 días</strong></div>
