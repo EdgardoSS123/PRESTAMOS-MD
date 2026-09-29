@@ -30,8 +30,8 @@ const DEFAULT_CETES=[
 ["280217",507,7.85,7.75],["280412",562,7.98,7.90],["280608",619,8.10,8.02],["280803",675,8.17,8.11]
 ].map(x=>({emission:x[0],days:x[1],close:x[2],yesterday:x[3]}));
 
-let bonds=structuredClone(BASE_BONDS.bonds), bondFunding=BASE_BONDS.funding, selectedBond="AB55";
-let cetes=structuredClone(DEFAULT_CETES), selectedCete="261008", valuationDate=new Date("2026-09-28T12:00:00"), valuationName="Resumen 28/09/2026";
+let bonds=JSON.parse(JSON.stringify(BASE_BONDS.bonds)), bondFunding=BASE_BONDS.funding, selectedBond="AB55";
+let cetes=JSON.parse(JSON.stringify(DEFAULT_CETES)), selectedCete="261008", valuationDate=new Date("2026-09-28T12:00:00"), valuationName="Resumen 28/09/2026";
 let banxico={sourceDate:null,items:{}};
 
 const $=id=>document.getElementById(id);
