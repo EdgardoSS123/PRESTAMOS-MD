@@ -1,5 +1,5 @@
 {
-  "sourceDate": "28/09/2026",
+  "sourceDate": "",
   "udiSource": "https://www.banxico.org.mx/tipcamb/llenarInflacionAction.do?idioma=sp&usarCache=false",
   "udibonoSource": "https://www.banxico.org.mx/valores/PresentaDetallePosicionGub.faces?BMXC_instrumento=5&BMXC_lang=es_MX",
   "values": {
@@ -28,7 +28,7 @@
       "coupons": 1,
       "couponDays": 182,
       "daysElapsed": 116,
-      "coupon": 3
+      "coupon": 3.0
     },
     "281130": {
       "maturity": "30/11/2028",
@@ -37,7 +37,7 @@
       "coupons": 5,
       "couponDays": 182,
       "daysElapsed": 116,
-      "coupon": 4
+      "coupon": 4.0
     },
     "290830": {
       "maturity": "30/08/2029",
@@ -46,7 +46,7 @@
       "coupons": 6,
       "couponDays": 182,
       "daysElapsed": 25,
-      "coupon": 4
+      "coupon": 4.0
     },
     "311127": {
       "maturity": "27/11/2031",
@@ -64,7 +64,7 @@
       "coupons": 16,
       "couponDays": 182,
       "daysElapsed": 25,
-      "coupon": 4
+      "coupon": 4.0
     },
     "351122": {
       "maturity": "22/11/2035",
@@ -82,7 +82,7 @@
       "coupons": 22,
       "couponDays": 182,
       "daysElapsed": 144,
-      "coupon": 4
+      "coupon": 4.0
     },
     "401115": {
       "maturity": "15/11/2040",
@@ -91,7 +91,7 @@
       "coupons": 29,
       "couponDays": 182,
       "daysElapsed": 116,
-      "coupon": 4
+      "coupon": 4.0
     },
     "431112": {
       "maturity": "12/11/2043",
@@ -109,7 +109,7 @@
       "coupons": 41,
       "couponDays": 182,
       "daysElapsed": 116,
-      "coupon": 4
+      "coupon": 4.0
     },
     "470801": {
       "maturity": "01/08/2047",
@@ -118,7 +118,7 @@
       "coupons": 42,
       "couponDays": 182,
       "daysElapsed": 32,
-      "coupon": 4
+      "coupon": 4.0
     },
     "501103": {
       "maturity": "03/11/2050",
@@ -127,7 +127,7 @@
       "coupons": 49,
       "couponDays": 182,
       "daysElapsed": 116,
-      "coupon": 4
+      "coupon": 4.0
     },
     "541029": {
       "maturity": "29/10/2054",
@@ -136,7 +136,7 @@
       "coupons": 57,
       "couponDays": 182,
       "daysElapsed": 116,
-      "coupon": 4
+      "coupon": 4.0
     },
     "571011": {
       "maturity": "11/10/2057",
@@ -145,7 +145,7 @@
       "coupons": 63,
       "couponDays": 182,
       "daysElapsed": 130,
-      "coupon": 4
+      "coupon": 4.0
     }
   }
 }

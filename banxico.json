@@ -1,5 +1,5 @@
 {
-  "sourceDate": "28/09/2026",
+  "sourceDate": "",
   "source": "https://www.banxico.org.mx/valores/PresentaDetallePosicionGub.faces?BMXC_instrumento=1&BMXC_lang=es_MX",
   "items": {
     "261001": {
@@ -8,14 +8,14 @@
     },
     "261008": {
       "balance": 22950.4,
-      "window": 918
+      "window": 918.0
     },
     "261015": {
       "balance": 73223.2,
       "window": 2928.9
     },
     "261022": {
-      "balance": 23313,
+      "balance": 23313.0,
       "window": 932.5
     },
     "261029": {
@@ -35,7 +35,7 @@
       "window": 311.1
     },
     "261126": {
-      "balance": 89815,
+      "balance": 89815.0,
       "window": 3592.6
     },
     "261203": {
@@ -68,7 +68,7 @@
     },
     "270218": {
       "balance": 47950.2,
-      "window": 1918
+      "window": 1918.0
     },
     "270304": {
       "balance": 88819.5,
@@ -91,7 +91,7 @@
       "window": 5142.1
     },
     "270527": {
-      "balance": 46428,
+      "balance": 46428.0,
       "window": 1857.1
     },
     "270624": {
@@ -99,8 +99,8 @@
       "window": 2033.8
     },
     "270708": {
-      "balance": 120626,
-      "window": 4825
+      "balance": 120626.0,
+      "window": 4825.0
     },
     "270722": {
       "balance": 44837.5,
