@@ -85,6 +85,15 @@
     </div>
   </section>
 
+  <section class="panel">
+    <div class="sectionTitle">CALCULAR POR PRÉSTAMO</div>
+    <div class="calc">
+      <div><label>PRÉSTAMO</label><input id="ceteLoanInput" inputmode="decimal" value="0.00000"></div>
+      <div class="arrow">→</div>
+      <div class="answer"><span>Fondeo equivalente</span><strong id="ceteFundingResult">—</strong></div>
+    </div>
+  </section>
+
   <section class="panel curve">
     <div class="curveTitle"><div class="sectionTitle">EMISIONES CETES</div><span id="ceteCount"></span></div>
     <div class="tableWrap"><table><thead><tr><th>Emisión</th><th>Plazo</th><th>Cierre</th><th>Ventana</th></tr></thead><tbody id="ceteBody"></tbody></table></div>
@@ -129,7 +138,7 @@
 
 <p id="error" class="error" hidden></p>
 </main>
-<script src="app-v14.js"></script>
+<script src="app-v15.js"></script>
 <script>
 (async()=>{
   try{
