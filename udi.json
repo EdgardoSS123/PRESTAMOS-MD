@@ -24,127 +24,127 @@
     "261203": {
       "maturity": "03/12/2026",
       "balance": 33563.5,
-      "daysToMaturity": 66,
+      "daysToMaturity": 65,
       "coupons": 1,
       "couponDays": 182,
-      "daysElapsed": 116,
+      "daysElapsed": 117,
       "coupon": 3.0
     },
     "281130": {
       "maturity": "30/11/2028",
       "balance": 40774.8,
-      "daysToMaturity": 794,
+      "daysToMaturity": 793,
       "coupons": 5,
       "couponDays": 182,
-      "daysElapsed": 116,
+      "daysElapsed": 117,
       "coupon": 4.0
     },
     "290830": {
       "maturity": "30/08/2029",
       "balance": 39057.7,
-      "daysToMaturity": 1067,
+      "daysToMaturity": 1066,
       "coupons": 6,
       "couponDays": 182,
-      "daysElapsed": 25,
+      "daysElapsed": 26,
       "coupon": 4.0
     },
     "311127": {
       "maturity": "27/11/2031",
       "balance": 60058.3,
-      "daysToMaturity": 1886,
+      "daysToMaturity": 1885,
       "coupons": 11,
       "couponDays": 182,
-      "daysElapsed": 116,
+      "daysElapsed": 117,
       "coupon": 2.75
     },
     "340824": {
       "maturity": "24/08/2034",
       "balance": 45469.5,
-      "daysToMaturity": 2887,
+      "daysToMaturity": 2886,
       "coupons": 16,
       "couponDays": 182,
-      "daysElapsed": 25,
+      "daysElapsed": 26,
       "coupon": 4.0
     },
     "351122": {
       "maturity": "22/11/2035",
       "balance": 53803.7,
-      "daysToMaturity": 3342,
+      "daysToMaturity": 3341,
       "coupons": 19,
       "couponDays": 182,
-      "daysElapsed": 116,
+      "daysElapsed": 117,
       "coupon": 4.5
     },
     "370423": {
       "maturity": "23/04/2037",
       "balance": 4850.2,
-      "daysToMaturity": 3860,
+      "daysToMaturity": 3859,
       "coupons": 22,
       "couponDays": 182,
-      "daysElapsed": 144,
+      "daysElapsed": 145,
       "coupon": 4.0
     },
     "401115": {
       "maturity": "15/11/2040",
       "balance": 46112.3,
-      "daysToMaturity": 5162,
+      "daysToMaturity": 5161,
       "coupons": 29,
       "couponDays": 182,
-      "daysElapsed": 116,
+      "daysElapsed": 117,
       "coupon": 4.0
     },
     "431112": {
       "maturity": "12/11/2043",
       "balance": 47294.5,
-      "daysToMaturity": 6254,
+      "daysToMaturity": 6253,
       "coupons": 35,
       "couponDays": 182,
-      "daysElapsed": 116,
+      "daysElapsed": 117,
       "coupon": 3.25
     },
     "461108": {
       "maturity": "08/11/2046",
       "balance": 48203.1,
-      "daysToMaturity": 7346,
+      "daysToMaturity": 7345,
       "coupons": 41,
       "couponDays": 182,
-      "daysElapsed": 116,
+      "daysElapsed": 117,
       "coupon": 4.0
     },
     "470801": {
       "maturity": "01/08/2047",
       "balance": 6188.2,
-      "daysToMaturity": 7612,
+      "daysToMaturity": 7611,
       "coupons": 42,
       "couponDays": 182,
-      "daysElapsed": 32,
+      "daysElapsed": 33,
       "coupon": 4.0
     },
     "501103": {
       "maturity": "03/11/2050",
       "balance": 62523.5,
-      "daysToMaturity": 8802,
+      "daysToMaturity": 8801,
       "coupons": 49,
       "couponDays": 182,
-      "daysElapsed": 116,
+      "daysElapsed": 117,
       "coupon": 4.0
     },
     "541029": {
       "maturity": "29/10/2054",
       "balance": 37933.7,
-      "daysToMaturity": 10258,
+      "daysToMaturity": 10257,
       "coupons": 57,
       "couponDays": 182,
-      "daysElapsed": 116,
+      "daysElapsed": 117,
       "coupon": 4.0
     },
     "571011": {
       "maturity": "11/10/2057",
       "balance": 23299.2,
-      "daysToMaturity": 11336,
+      "daysToMaturity": 11335,
       "coupons": 63,
       "couponDays": 182,
-      "daysElapsed": 130,
+      "daysElapsed": 131,
       "coupon": 4.0
     }
   }
