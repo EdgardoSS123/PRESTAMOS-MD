@@ -33,7 +33,7 @@
 <section id="bonosView">
   <section class="panel hero">
     <label>BONO</label>
-    <select id="bondInput" class="instrumentSelect"></select>
+    <select id="bondInput" class="instrumentSelect"></select><div style="margin-top:10px"><span style="color:#7f8998;font-size:11px">NIVEL USADO EN CÁLCULO</span><strong id="bondLevelUsed" style="display:block;font-size:20px;margin-top:4px">—</strong></div>
     <div class="facts">
       <div><span>Préstamo actual</span><strong id="currentLoan">0.09960</strong></div>
       <div><span>Fondeo actual</span><div class="suffix compact"><input id="currentFundingInput" inputmode="decimal" value="6.54"><i>%</i></div></div>
@@ -68,7 +68,7 @@
 <section id="cetesView" hidden>
   <section class="panel hero">
     <label>EMISIÓN CETE</label>
-    <select id="ceteInput" class="instrumentSelect"></select>
+    <select id="ceteInput" class="instrumentSelect"></select><div style="margin-top:10px"><span style="color:#7f8998;font-size:11px">NIVEL USADO EN CÁLCULO</span><strong id="ceteLevelUsed" style="display:block;font-size:20px;margin-top:4px">—</strong></div>
     <div class="facts">
       <div><span>Cierre</span><div class="suffix compact"><input id="ceteCloseInput" inputmode="decimal" value="6.54" aria-label="Cierre CETES editable"><i>✎</i></div></div>
       <div><span>Plazo</span><strong id="ceteDays">10 días</strong></div>
@@ -104,7 +104,7 @@
 <section id="udisView" hidden>
   <section class="panel hero">
     <label>EMISIÓN UDIBONO</label>
-    <select id="udiInput" class="instrumentSelect"></select>
+    <select id="udiInput" class="instrumentSelect"></select><div style="margin-top:10px"><span style="color:#7f8998;font-size:11px">NIVEL USADO EN CÁLCULO</span><strong id="udiLevelUsed" style="display:block;font-size:20px;margin-top:4px">—</strong></div>
     <div class="facts">
       <div><span>Cierre real</span><strong id="udiClose">—</strong></div>
       <div><span>Plazo</span><strong id="udiDays">—</strong></div>
@@ -138,7 +138,7 @@
 
 <p id="error" class="error" hidden></p>
 </main>
-<script src="app-v24.js"></script>
+<script src="app-v25.js"></script>
 <script>
 (async()=>{
   try{
