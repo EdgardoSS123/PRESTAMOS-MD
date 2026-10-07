@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b0f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="PRESTAMOS MD">
+<link rel="manifest" href="manifest.webmanifest">
+<title>PRESTAMOS MD</title>
+<link rel="stylesheet" href="styles-v9.css">
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+<main class="app">
+<header class="top">
+  <div><div class="eyebrow">MERCADO DE DINERO</div><h1>Préstamos MD</h1><div class="sub">Bonos + CETES + UDIBONOS</div></div>
+  <label class="upload">Valuación diaria<input id="valuationFile" type="file" accept=".xlsx,.xls" hidden></label>
+</header>
+
+<section class="current">
+  <div><span>Valuación</span><b id="valuationName">Resumen 28/09/2026</b></div>
+  <div class="r"><span>Banxico</span><b id="banxicoDate">28/09/2026</b></div>
+</section>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="bonos">BONOS</button>
+  <button class="tab" data-tab="cetes">CETES</button>
+  <button class="tab" data-tab="udis">UDIBONOS</button>
+</nav>
+
+<section id="bonosView">
+  <section class="panel hero">
+    <label>BONO</label>
+    <select id="bondInput" class="instrumentSelect"></select><div style="margin-top:10px"><span style="color:#7f8998;font-size:11px">NIVEL USADO EN CÁLCULO</span><strong id="bondLevelUsed" style="display:block;font-size:20px;margin-top:4px">—</strong></div>
+    <div class="facts">
+      <div><span>Préstamo actual</span><strong id="currentLoan">0.09960</strong></div>
+      <div><span>Fondeo actual</span><div class="suffix compact"><input id="currentFundingInput" inputmode="decimal" value="6.54"><i>%</i></div></div>
+      <div><span>Cierre</span><strong id="currentYield">10.12%</strong></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="sectionTitle">CALCULAR POR FONDEO</div>
+    <div class="calc">
+      <div><label>FONDEO</label><div class="suffix"><input id="fundingInput" inputmode="decimal" value="6.30"><i>%</i></div></div>
+      <div class="arrow">→</div>
+      <div class="answer"><span>Préstamo equivalente</span><strong id="loanResult">0.10680</strong></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="sectionTitle">CALCULAR POR PRÉSTAMO</div>
+    <div class="calc">
+      <div><label>PRÉSTAMO</label><input id="loanInput" inputmode="decimal" value="0.10680"></div>
+      <div class="arrow">→</div>
+      <div class="answer"><span>Fondeo equivalente</span><strong id="fundingResult">6.30%</strong><small id="bondInverseLevel" style="display:block;margin-top:5px;color:#7f8998;font-size:10px">Valuación usada: —</small></div>
+    </div>
+  </section>
+
+  <section class="panel curve">
+    <div class="curveTitle"><div class="sectionTitle">CURVA ACTUAL</div><span id="bondCount"></span></div>
+    <div class="tableWrap"><table><thead><tr><th>Bono</th><th>Cierre</th><th>Ayer</th><th>Préstamo</th></tr></thead><tbody id="curveBody"></tbody></table></div>
+  </section>
+</section>
+
+<section id="cetesView" hidden>
+  <section class="panel hero">
+    <label>EMISIÓN CETE</label>
+    <select id="ceteInput" class="instrumentSelect"></select><div style="margin-top:10px"><span style="color:#7f8998;font-size:11px">NIVEL USADO EN CÁLCULO</span><strong id="ceteLevelUsed" style="display:block;font-size:20px;margin-top:4px">—</strong></div>
+    <div class="facts">
+      <div><span>Cierre</span><div class="suffix compact"><input id="ceteCloseInput" inputmode="decimal" value="6.54" aria-label="Cierre CETES editable"><i>✎</i></div></div>
+      <div><span>Plazo</span><strong id="ceteDays">10 días</strong></div>
+      <div><span>Ventana 4%</span><strong id="ceteWindow">$918.0 MM</strong></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="sectionTitle">PRÉSTAMO POR FONDEO</div>
+    <div class="calc">
+      <div><label>FONDEO</label><div class="suffix"><input id="ceteFundingInput" inputmode="decimal" value="5.90"><i>%</i></div></div>
+      <div class="arrow">→</div>
+      <div class="answer"><span>Préstamo</span><strong id="ceteLoanResult">0.00000</strong></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="sectionTitle">CALCULAR POR PRÉSTAMO</div>
+    <div class="calc">
+      <div><label>PRÉSTAMO</label><input id="ceteLoanInput" inputmode="decimal" value="0.00000"></div>
+      <div class="arrow">→</div>
+      <div class="answer"><span>Fondeo equivalente</span><strong id="ceteFundingResult">—</strong><small id="ceteInverseLevel" style="display:block;margin-top:5px;color:#7f8998;font-size:10px">Valuación usada: —</small></div>
+    </div>
+  </section>
+
+  <section class="panel curve">
+    <div class="curveTitle"><div class="sectionTitle">EMISIONES CETES</div><span id="ceteCount"></span></div>
+    <div class="tableWrap"><table><thead><tr><th>Emisión</th><th>Plazo</th><th>Cierre</th><th>Ventana</th></tr></thead><tbody id="ceteBody"></tbody></table></div>
+  </section>
+</section>
+
+
+<section id="udisView" hidden>
+  <section class="panel hero">
+    <label>EMISIÓN UDIBONO</label>
+    <select id="udiInput" class="instrumentSelect"></select><div style="margin-top:10px"><span style="color:#7f8998;font-size:11px">NIVEL USADO EN CÁLCULO</span><strong id="udiLevelUsed" style="display:block;font-size:20px;margin-top:4px">—</strong></div>
+    <div class="facts">
+      <div><span>Cierre real</span><strong id="udiClose">—</strong></div>
+      <div><span>Plazo</span><strong id="udiDays">—</strong></div>
+      <div><span>UDI MD</span><strong id="udiValue">—</strong><small id="udiLastUpdate" style="display:block;margin-top:5px;color:#7f8998;font-size:10px">Actualizada: —</small></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="sectionTitle">PRÉSTAMO POR FONDEO</div>
+    <div class="calc">
+      <div><label>FONDEO</label><div class="suffix"><input id="udiFundingInput" inputmode="decimal" value="6.50"><i>%</i></div></div>
+      <div class="arrow">→</div>
+      <div class="answer"><span>Préstamo</span><strong id="udiLoanResult">0.0000</strong></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="sectionTitle">CALCULAR POR PRÉSTAMO</div>
+    <div class="calc">
+      <div><label>PRÉSTAMO</label><input id="udiLoanInput" inputmode="decimal" value="0.0000"></div>
+      <div class="arrow">→</div>
+      <div class="answer"><span>Fondeo equivalente</span><strong id="udiFundingResult">—</strong><small id="udiInverseLevel" style="display:block;margin-top:5px;color:#7f8998;font-size:10px">Valuación usada: —</small></div>
+    </div>
+  </section>
+
+  <section class="panel curve">
+    <div class="curveTitle"><div class="sectionTitle">CURVA UDIBONOS</div><span id="udiCount"></span></div>
+    <div class="tableWrap"><table><thead><tr><th>Emisión</th><th>Plazo</th><th>Cierre</th><th>Préstamo</th></tr></thead><tbody id="udiBody"></tbody></table></div>
+  </section>
+</section>
+
+<p id="error" class="error" hidden></p>
+</main>
+<script src="app-v28.js?fresh=20261007-2"></script>
+<script>
+(async()=>{
+  try{
+    if("serviceWorker" in navigator){
+      const rs=await navigator.serviceWorker.getRegistrations();
+      await Promise.all(rs.map(r=>r.unregister()));
+    }
+    if("caches" in window){
+      const ks=await caches.keys();
+      await Promise.all(ks.map(k=>caches.delete(k)));
+    }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
