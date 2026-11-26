@@ -18,7 +18,7 @@
 <body>
 <main class="app">
 <header class="top">
-  <div><div class="eyebrow">MERCADO DE DINERO</div><h1>Préstamos MD <span style="font-size:.42em;color:#7f8998;font-weight:700;vertical-align:middle">v36</span></h1><div class="sub">Bonos + CETES + UDIBONOS</div></div>
+  <div><div class="eyebrow">MERCADO DE DINERO</div><h1>Préstamos MD</h1><div class="sub">Bonos + CETES + UDIBONOS</div></div>
   <label class="upload">Valuación diaria<input id="valuationFile" type="file" accept=".xlsx,.xls" hidden></label>
 </header>
 
@@ -82,16 +82,16 @@
   <section class="panel">
     <div class="sectionTitle">PRÉSTAMO POR FONDEO</div>
     <div class="calc">
-      <div><label>FONDEO</label><div class="suffix"><input id="ceteFundingInput" inputmode="decimal" value="5.90000"><i>%</i></div></div>
+      <div><label>FONDEO</label><div class="suffix"><input id="ceteFundingInput" inputmode="decimal" value="5.90"><i>%</i></div></div>
       <div class="arrow">→</div>
-      <div class="answer"><span>Préstamo</span><strong id="ceteLoanResult">0.00000000</strong></div>
+      <div class="answer"><span>Préstamo</span><strong id="ceteLoanResult">0.00000</strong></div>
     </div>
   </section>
 
   <section class="panel">
     <div class="sectionTitle">CALCULAR POR PRÉSTAMO</div>
     <div class="calc">
-      <div><label>PRÉSTAMO</label><input id="ceteLoanInput" inputmode="decimal" value="0.00000000"></div>
+      <div><label>PRÉSTAMO</label><input id="ceteLoanInput" inputmode="decimal" value="0.00000"></div>
       <div class="arrow">→</div>
       <div class="answer"><span>Fondeo equivalente</span><strong id="ceteFundingResult">—</strong><small id="ceteInverseLevel" style="display:block;margin-top:5px;color:#7f8998;font-size:10px">Valuación usada: —</small></div>
     </div>
@@ -144,7 +144,7 @@
 
 <p id="error" class="error" hidden></p>
 </main>
-<script src="app-v36.js?fresh=20261126-1"></script>
+<script src="app-v31.js?fresh=20261013-2"></script>
 <script>
 (async()=>{
   try{
